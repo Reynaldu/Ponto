@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
@@ -11,5 +12,41 @@ body{
 
 .flex{
     display: flex;
-    
+
+}
+
+.limite{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+header{
+    padding: 0px 4%;
+    background-color: rgb(43, 107, 226);
+}
+
+header > .limite{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section.topo-do-site {
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    border: solid ;
+}
+
+section.topo-do-site .flex2{
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    border: solid ;
+    margin-top: 10px;
+    height: 500px;
 }
