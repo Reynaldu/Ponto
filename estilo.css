@@ -75,5 +75,15 @@ th{
 }
 
 input{
-    
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(73, 116, 165);
+    font-size: 15px;
+    transition: .2s;
+}
+
+input:hover{
+    background-color: rgb(24, 255, 178);
 }
