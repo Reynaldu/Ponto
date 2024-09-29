@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de ponto</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
+
 <body>
     <header id="menu">
         <div class="limite">
             <div class="log"><!--logo da atlas -->
-                <img width="100"  src="imagens/atlas.png" alt="">
+                <img width="100" src="imagens/atlas.png" alt="">
             </div>
 
             <div class="btn-contato"><!--suporte -->
-                 <a href="https://w.app/t6uX2F" target="_blank">
+                <a href="https://w.app/t6uX2F" target="_blank">
                     <button>SUPORTE</button>
-                 </a>
+                </a>
             </div>
         </div>
     </header>
@@ -24,82 +26,81 @@
     <main>
         <section class="topo-do-site">
             <div class="limite">
-                 <div class="flex">
+                <div class="flex">
                     <div class="txt-topo-site">
                         <h1 class="titu1">CONTROLE DE PONTO</h1>
                     </div>
                 </div>
             </div><!--limite-->
-            
+
             <div class="flex2">
                 <div class="txt-top-site2">
-                     <table >
-                       
-                        <tr>
-                            <th  width="200">NOME</th>
-                            <th>FALTA</th>
-                            <th>PRESEN</th>
-                            <th>ATESTADO</th>
-                        </tr>
+                    <table>
 
-                        <tr>
-                            <td>Reinaldo</td>
-                            <td>
-                             <input type="checkbox" name="opcional[]"    value="sim" class="rad">
-                            </td>
+                        <form method="get">
+                            <tr>
+                                <th width="200">NOME</th>
+                                <th>FALTA</th>
+                                <th>PRESEN</th>
+                                <th>ATESTADO</th>
+                            </tr>
 
-                            <td>
-                                <input type="checkbox" name="opcional[]"    value="nao" class="rad">
-                            </td>
+                            <tr>
+                                <td>Reinaldo</td>
+                                <td>
+                                    <input type="checkbox" name="reinaldo[]" value="sim" class="rad">
+                                </td>
 
-                            <td>
-                                <input type="checkbox" name="opcional[]"    value="nao" class="rad">
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Euler</td>
-                            <td>
-                                <input type="checkbox" name="opcional[]"    value="sim"  class="rad">
-                            </td>
+                                <td>
+                                    <input type="checkbox" name="reinaldo[]" value="nao" class="rad">
+                                </td>
 
-                            <td>
-                                <input type="checkbox" name="opcional[]"    value="nao"  class="rad">
-                            </td>
+                                <td>
+                                    <input type="checkbox" name="reinaldo[]" value="nao" class="rad">
+                                </td>
+                            </tr>
 
-                            <td>
-                                <input type="checkbox" name="opcional[]"    value="nao" class="rad">
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>Euler</td>
+                                <td>
+                                    <input type="checkbox" name="euller[]" value="sim" class="rad">
+                                </td>
 
-                        <tr>
-                            <td>Michelle</td>
-                            <td>
-                              
-                                <input type="checkbox" 
-                                value="sim"
-                                name="opcional[]"  class="rad">
-                              
-                            </td>
+                                <td>
+                                    <input type="checkbox" name="euller[]" value="nao" class="rad">
+                                </td>
 
-                            <td>
-                                <input type="checkbox" 
-                                value="nao"
-                                name="opcional[]"  class="rad">
-                            </td>
+                                <td>
+                                    <input type="checkbox" name="euller[]" value="nao" class="rad">
+                                </td>
+                            </tr>
 
-                            <td>
-                                <input type="checkbox" name="opcional[]"    value="nao" class="rad">
-                            </td>
-                        </tr>
-                        <input type="submit" value="ENVIAR">
-                     </table><br>
+                            <tr>
+                                <td>Michelle</td>
+                                <td>
 
-                   
-                     
+                                    <input type="checkbox" value="sim" name="michelle[]" class="rad">
+
+                                </td>
+
+                                <td>
+                                    <input type="checkbox" value="nao" name="michlle[]" class="rad">
+                                </td>
+
+                                <td>
+                                    <input type="checkbox" name="michelle[]" value="nao" class="rad">
+                                </td>
+                            </tr>
+
+                            <input type="submit" value="ENVIAR">
+
+                        </form>
+
+                    </table>
                 </div>
             </div>
         </section><!--TOPO DO SITE-->
     </main>
 </body>
+
 </html>
