@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    *{box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 18px;
+    }
+
+    body{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .container{
+        width: 500px;
+        padding: 30px;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: blanchedalmond;
+    }
+
+    input{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    textarea{
+        width: 100%;
+        padding: 10px;
+    }
+
+  
+   </style>
+
+
+<script src="script.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <form method="post" name="formulario-contato">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="email" name="email" placeholder="email">
+            <textarea name="mensagem" rows="7" placeholder="Sua mensagem"></textarea>
+            <input type="submit" value="ENVIAR" id="enviar">
+        </form>
+    </div>
+</body>
+</html>
