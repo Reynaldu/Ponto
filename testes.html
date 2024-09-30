@@ -37,21 +37,36 @@
         padding: 10px;
     }
 
+    #enviar{
+        border: none;
+        background-color: yellow;
+        color: black;
+        width: 200px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    #enviar:hover{
+        background-color: aquamarine;
+    }
+     
   
    </style>
 
 
-<script src="script.js"></script>
+
 
 </head>
 <body>
     <div class="container">
         <form method="post" name="formulario-contato">
             <input type="text" name="nome" placeholder="Nome">
-            <input type="email" name="email" placeholder="email">
-            <textarea name="mensagem" rows="7" placeholder="Sua mensagem"></textarea>
-            <input type="submit" value="ENVIAR" id="enviar">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="mensagem" rows="7" placeholder="Sua message"></textarea>
+            <input type="submit" value="Enviar" id="enviar">
         </form>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
