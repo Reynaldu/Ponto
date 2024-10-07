@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presença</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+   </style>
+</head>
+<body>
+    <h1>Lista de Presença</h1>
+    <table id="attendanceTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Falta</th>
+                <th>Presença</th>
+                <th>Dia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" class="nome" placeholder="Nome"></td>
+                <td><input type="radio" name="attendance0" value="falta"></td>
+                <td><input type="radio" name="attendance0" value="presenca"></td>
+                <td><input type="date" class="dia"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="addRowBtn">Adicionar Linha</button>
+    <button id="submitBtn">Enviar para Planilha</button>
+
+    <script>
+
+document.getElementById('addRowBtn').addEventListener('click', function() {
+    const table = document.getElementById('attendanceTable').getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
+
+    const nomeCell = newRow.insertCell(0);
+    const faltaCell = newRow.insertCell(1);
+    const presencaCell = newRow.insertCell(2);
+    const diaCell = newRow.insertCell(3);
+
+    nomeCell.innerHTML = '<input type="text" class="nome" placeholder="Nome">';
+    faltaCell.innerHTML = '<input type="radio" name="attendance' + table.rows.length + '" value="falta">';
+    presencaCell.innerHTML = '<input type="radio" name="attendance' + table.rows.length + '" value="presenca">';
+    diaCell.innerHTML = '<input type="date" class="dia">';
+});
+
+document.getElementById('submitBtn').addEventListener('click', function() {
+    const rows = document.querySelectorAll('#attendanceTable tbody tr');
+    const attendanceData = [];
+
+    rows.forEach(row => {
+        const nome = row.querySelector('.nome').value;
+        const falta = row.querySelector('input[value="falta"]').checked ? "Falta" : "";
+        const presenca = row.querySelector('input[value="presenca"]').checked ? "Presença" : "";
+        const dia = row.querySelector('.dia').value;
+
+        attendanceData.push({
+            nome: nome,
+            falta: falta,
+            presenca: presenca,
+            dia: dia
+        });
+    });
+
+    console.log(attendanceData);
+
+    // Aqui você pode enviar os dados para uma planilha usando uma API, como Google Sheets API ou um backend.
+    enviarParaPlanilha(attendanceData);
+});
+
+function enviarParaPlanilha(dados) {
+    // Implemente a função de envio para planilha aqui
+    alert('Os dados serão enviados para a planilha!');
+}
+
+    </script>
+</body>
+</html>
