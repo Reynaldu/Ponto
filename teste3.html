@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presença</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Lista de Presença - Outubro</h1>
+    <form id="attendance-form">
+        <table>
+            <thead>
+                <tr>
+                    <th>Dia</th>
+                    <th>Presença</th>
+                    <th>Falta</th>
+                </tr>
+            </thead>
+            <tbody id="attendance-table">
+                <!-- Linhas serão geradas dinamicamente pelo JavaScript -->
+            </tbody>
+        </table>
+        <button type="submit">Enviar</button>
+    </form>
+    <script >
+        // URL do Google Apps Script
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx9qn2mDnejKMrtUQkLynGawj53fNgy_kDzW4RUu8yEOYpVIQhGE4if72U6IKIqzbzoVA/exec';
+
+document.addEventListener('DOMContentLoaded', function () {
+    const tableBody = document.getElementById('attendance-table');
+    const form = document.getElementById('attendance-form');
+
+    // Função para gerar as linhas da tabela com os dias do mês
+    function generateTable() {
+        const daysInMonth = 31; // Outubro tem 31 dias
+        for (let day = 1; day <= daysInMonth; day++) {
+            const row = document.createElement('tr');
+            
+            // Coluna do dia
+            const dayCell = document.createElement('td');
+            dayCell.textContent = day;
+            row.appendChild(dayCell);
+
+            // Coluna de presença (input checkbox)
+            const presentCell = document.createElement('td');
+            const presentInput = document.createElement('input');
+            presentInput.type = 'checkbox';
+            presentInput.name = `presenca${day}`;
+            presentCell.appendChild(presentInput);
+            row.appendChild(presentCell);
+
+            // Coluna de falta (input checkbox)
+            const absentCell = document.createElement('td');
+            const absentInput = document.createElement('input');
+            absentInput.type = 'checkbox';
+            absentInput.name = `falta${day}`;
+            absentCell.appendChild(absentInput);
+            row.appendChild(absentCell);
+
+            // Adicionar a linha à tabela
+            tableBody.appendChild(row);
+        }
+    }
+
+    // Chamar a função para gerar a tabela ao carregar a página
+    generateTable();
+
+    // Enviar o formulário para o Google Sheets via Google Apps Script
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const attendanceData = [];
+
+        for (let day = 1; day <= 31; day++) {
+            attendanceData.push({
+                dia: day,
+                presenca: formData.get(`presenca${day}`) ? 'Presente' : '',
+                falta: formData.get(`falta${day}`) ? 'Falta' : ''
+            });
+        }
+
+        attendanceData.forEach(entry => {
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(entry),
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch(error => console.error('Error:', error));
+        });
+
+        alert("Dados enviados com sucesso!");
+    });
+});
+
+    </script>
+</body>
+</html>
