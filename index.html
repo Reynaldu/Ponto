@@ -4,19 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Presença de Funcionários</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+    
+    <header id="menu">
+        <div class="limite">
+            <div class="log"><!--logo da atlas -->
+                <img width="100" src="imagens/atlas.png" alt="">
+            </div>
+
+            <div class="btn-contato"><!--suporte -->
+                <a href="tel:+5531987811216" target="_blank">
+                    <button>SUPORTE</button>
+                </a>
+            </div>
+        </div>
+    </header>
 
 
+ <main>
+    <section class="topo-do-site">
+        <div class="flex">
+            <div class="txt-topo-site">
+                <h1 class="titu1">CONTROLE DE PONTO</h1>
+            </div>
+        </div>
 
-  <div class="container">
-    <h1>Lista de Presença de Funcionários</h1>
+    <div class="flex2">
+        <div class="txt-top-site2">
+            <table>
     <form action="https://sheetdb.io/api/v1/nm49xnrk63c8q"
      id="attendance-form" method="post" name="ControleDePonto">
 
         <!--<label for="nome">Nome:</label>
         <input type="text" id="nome" name="data[nome]" required><br><br>-->
-
+       
         <label for="nome">Nome:</label>
             <select id="servico" name="data[nome]" required>
                 <option value="Anacleto">Anacleto</option>
@@ -54,12 +77,10 @@
 
         <button type="submit">Enviar</button>
     </form>
-
-  </div>
-
-
-
-    <div id="resultado"></div>
-   
+    </table>
+    </div>
+    </div>
+  </section>
+</main>
 </body>
 </html>
