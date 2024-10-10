@@ -58,13 +58,8 @@ section.topo-do-site .flex2{
 }
 
 input{
-    width: 70px;
-    height: 40px;
     border-radius: 10px;
-    border: none;
-    border: solid 2px ;
-    font-size: 15px;
-    transition: .2s;
+
 }
 
 .txt-top-site2{
