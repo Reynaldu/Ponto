@@ -61,5 +61,12 @@ section.topo-do-site .flex2{
 .txt-top-site2{
     border: solid 2px ;
     padding: 20px;
+    border-radius: 10PX;
+    height: 420PX;
 
+}
+
+label{
+    font-weight: bolder;
+    font-size: 20PX;
 }
